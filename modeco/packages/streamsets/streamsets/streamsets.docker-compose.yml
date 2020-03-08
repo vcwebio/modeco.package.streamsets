@@ -5,7 +5,7 @@ services:
 # START SERVICE streamsets.base
   streamsets:
     image: ${CONTECO_REGISTRY}${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.streamsets.base:3.10.1
-    environment: ['SDC_JAVA_OPTS=-Xmx${CONTECO_DC_STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_MEMORY} -Xms${CONTECO_DC_STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}']
+    environment: ['SDC_JAVA_OPTS=-Xmx${STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_MEMORY} -Xms${STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}']
     command: []
     volumes: ['package_streamsets_streamsets_volume:/data']
     ports: []
@@ -14,12 +14,12 @@ services:
       mode: replicated
       resources:
         limits:
-          cpus: '${CONTECO_DC_STREAMSETS_DEPLOY_RESOURCES_LIMITS_CPUS}'
-          memory: '${CONTECO_DC_STREAMSETS_DEPLOY_RESOURCES_LIMITS_MEMORY}'
+          cpus: '${STREAMSETS_DEPLOY_RESOURCES_LIMITS_CPUS}'
+          memory: '${STREAMSETS_DEPLOY_RESOURCES_LIMITS_MEMORY}'
         reservations:
-          cpus: '${CONTECO_DC_STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
-          memory: '${CONTECO_DC_STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
-      labels: [${CONTECO_DC_STREAMSETS_DEPLOY_LABELS}]
+          cpus: '${STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
+          memory: '${STREAMSETS_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
+      labels: [${STREAMSETS_DEPLOY_LABELS}]
 # END SERVICE streamsets.base
 
 volumes: {package_streamsets_streamsets_volume: { external: true }}
