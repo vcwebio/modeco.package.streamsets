@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+
+prefix="package_$2"
+
+
+executionplane --silent docker container prune --force
+
+if [[ "package_streamsets_streamsets_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume rm --force package_streamsets_streamsets_volume
+	fi
+	
