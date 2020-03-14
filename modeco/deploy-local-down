@@ -7,6 +7,16 @@ prefix="package_$2"
 executionplane --silent docker container prune --force
 
 if [[ "package_streamsets_streamsets_volume" == "$prefix"* ]] ; then
-	executionplane --silent docker volume rm --force package_streamsets_streamsets_volume
+		continue="true"
+		while [[ "true" == "$continue" ]] ;
+		do
+			executionplane docker volume rm "package_streamsets_streamsets_volume"
+			result=
+			if [[ "$result" == "" ]] ; then
+				continue="false"
+			else
+				sleep 3;
+			fi
+		done;
 	fi
 	
