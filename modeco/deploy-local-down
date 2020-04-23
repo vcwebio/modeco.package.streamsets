@@ -11,7 +11,7 @@ if [[ "package_streamsets_streamsets_volume" == "$prefix"* ]] ; then
 		while [[ "true" == "$continue" ]] ;
 		do
 			executionplane docker volume rm "package_streamsets_streamsets_volume"
-			result=
+			result=$(docker volume ls | grep "package_streamsets_streamsets_volume")
 			if [[ "$result" == "" ]] ; then
 				continue="false"
 			else
