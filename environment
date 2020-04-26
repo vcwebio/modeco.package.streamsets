@@ -5,7 +5,7 @@ export CONTECO_DESCRIPTION="Modeco StreamSets module package."
 
 export CONTECO_TYPE="package"
 export CONTECO_NAME="streamsets"
-export CONTECO_TAG="v1.0.0"
+export CONTECO_TAG="3.10.1"
 export CONTECO_TAG_TYPE="incremental"
 
 export CONTECO_BASE="image.wrapper"
